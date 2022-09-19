@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript">
+    
+function validation(){
+  val = true
+  
+   
+ 
+  let x = document.getElementById('Name').value;
+  let y = document.getElementById('email').value;
+  let z = document.getElementById('zpcode').value;
+  let a = document.getElementById('pwd').value;
+  let c = document.getElementById('ph').value;
+  let d = document.getElementById('uname').value;
+  let e = document.myform.password;
+  let b = /^(?=(.*[A-Z]){3})(?=(.*[a-z]){3})(?=(.*\d){3})(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]){3})(?!.*\s).{10,100}$/;
+  // alert(e.value)
+  
+  // let f =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{10,100}$/
+  // alert(e.value.match(f))
+  // alert("hi");
+  
+  
+
+ 
+  if (x == "") {
+     document.getElementById("demo").innerHTML = "name is empty";
+      val = false ;
+  }
+  
+  if (y == ""){
+    document.getElementById("email1").innerHTML = "email empty";
+    val = false;
+  }
+  else if(y.endsWith("@vitstudent.edu")==false){
+    document.getElementById("email1").innerHTML = "email is not proper";
+    val = false;
+
+  }
+  if(z == ""){
+    document.getElementById("zip").innerHTML = "Zip code is empty";
+    val = false;
+  }
+  else if(Number(z).toString().length != 5){
+    document.getElementById("zip").innerHTML = "Zip code length should be 5";
+    val = false;
+  }
+  if(d == ""){
+    document.getElementById("u1").innerHTML = "Username is empty";
+  }
+  if(a == ""){
+    document.getElementById("pwd1").innerHTML = "Password is empty";
+    val = false;
+  }
+  else if(!e.value.match(b)){
+    document.getElementById("pwd1").innerHTML = "Password doesn't match the conditions";
+    val = false;
+  }
+  
+  if(c == ""){
+    document.getElementById("ph1").innerHTML = "phone number is empty";
+    val = false;
+  }
+  else if(Number(c).toString().length != 10){
+    document.getElementById("ph1").innerHTML = "phone number length should be 10";
+    val = false;
+  }
+  //  if(!b.test(form.password.value)){
+  //   alert("hi")
+  //   val = false;
+  // }
+ 
+  if(val == true){
+    alert("You have succesfully registered for the event");
+  }
+  
+   return val;
+}
+
+     </script>
+     <link rel="stylesheet" href="forms.css">  
+</head>
+<body>
+    <!-- <div class="image1"><img src="VIT LOGO WHITE.png" style="height:100px;width:100px;margin-left: 50px;"></div> -->
+    <div class="image"></div>
+    <p class="heading">EVENT REGISTRATION</p>
+    <div class="form">
+      <form name="myform" onsubmit= "return(validation());">
+        <lable>Name: &nbsp; &nbsp; &nbsp; </lable>
+        <input type="text" name="Name" id="Name"/>
+        <p id="demo" style="color:red"></p>
+        <lable>E-mail: &nbsp; &nbsp;</lable>
+        <input type="email" name="E-mail" id="email">
+        <p id="email1" style="color:red"></p>
+        <lable>Username:</lable>
+        <input type="text" name="username" id="uname">
+        <p id="u1" style="color:red"></p>
+        <lable>Password: &nbsp;</lable>
+        <input type="password" name="password" id="pwd">
+        <p id="pwd1" style="color:red"></p>
+        <lable>Phone no: &nbsp;</lable>
+        <input type="text" name="phno" id="ph">
+        <p id="ph1"  style="color:red"></p>
+        <lable>Zipcode: &nbsp; &nbsp;</lable>
+        <input type="text" name="zipcode" id="zpcode">
+        <p id="zip" style="color:red"></p>
+        <input type="submit" value="Submit" id="submit" onclicl="alert('succesfully Registered!')" >
+    </form>
+    </div>
+</body>
+</html>
